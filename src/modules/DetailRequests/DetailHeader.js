@@ -17,7 +17,7 @@ export default function DetailHeader() {
         </TouchableOpacity>
 
         <AppText weight="bold" size={20} color={colors.white}>
-          Solicitudes de lugar
+         Detalles de Solicitud
         </AppText>
       </View>
 
