@@ -1,30 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import LoginScreen from './Login/Login';
-
-import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto'; //Exporto el tipo de letra
-
+import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import AppNavigator from './src/navigation/AppNavigator';
+import { colors } from './src/theme';
 
 export default function App() {
-    // Cargar las fuentes Roboto 
-  const [fontsLoaded] = useFonts({
-    Roboto_400Regular,
-    Roboto_700Bold,
-  });
-  // Si las fuentes aún no se cargan, muestra un spinner de carga
+  const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
+
   if (!fontsLoaded) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="#0A2472" />
+        <ActivityIndicator size="large" color={colors.primary} />
       </View>
     );
   }
- // Si las fuentes se cargaron, muestra la pantalla de Login
+
   return (
-    <>
-    
-      <LoginScreen />
+    <SafeAreaProvider>
+      <AppNavigator />
       <StatusBar style="dark" />
-    </>
+    </SafeAreaProvider>
   );
 }
