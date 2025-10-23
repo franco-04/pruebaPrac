@@ -4,9 +4,10 @@ import { colors, spacing, typography } from "../../theme";
 import AppText from "../../components/AppText";
 import { Ionicons } from "@expo/vector-icons";
 
-// Cambia esta imagen por tu ilustración
+
 
 export default function HomeHeader({
+  //datos fiticios como el de las pantallas
   name = "Antonio",
   role = "Administrador",
   place = "Tianguis Madero, Querétaro",

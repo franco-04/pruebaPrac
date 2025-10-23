@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 export default function HomeFooter() {
   const navigation = useNavigation();
   return (
+    
     <View style={styles.footer}>
       <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.item}>
         <Ionicons name="home-outline" size={24} color={colors.white} />

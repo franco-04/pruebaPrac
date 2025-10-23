@@ -3,6 +3,16 @@ import { View, StyleSheet, Pressable } from "react-native";
 import AppText from "./AppText";
 import { colors, spacing } from "../theme";
 
+
+/**
+ * Componente: DetailRow
+ Muestra una fila con una etiqueta (label), un valor (value)
+Props:
+label: texto descriptivo del campo (ej. "Folio")
+value: valor o dato que se muestra (ej. "#01-022")
+ actionLabel: texto del botón opcional (ej. "Editar")
+onActionPress: función que se ejecuta al presionar el botón
+ */
 export default function DetailRow({
   label,
   value,

@@ -15,11 +15,15 @@ import RequestCard from "../../components/RequestCard";
 import { colors, spacing } from "../../theme";
 import { useNavigation } from "@react-navigation/native";
 
+/*
+Pantalal de solicitudes
+*/
 export default function Requests() {
   const navigation = useNavigation();
-  const [showSelector, setShowSelector] = useState(false);
-  const [statusFilter, setStatusFilter] = useState("all");
+  const [showSelector, setShowSelector] = useState(false); // Estado para abrir/cerrar el selector de mercado
+  const [statusFilter, setStatusFilter] = useState("all"); // Estado del filtro activo (all | review | approved | rejected)
 
+  // Fecha formateada para mostrar arriba
   const today = new Date().toLocaleDateString("es-ES", {
     weekday: "long",
     year: "numeric",
@@ -27,6 +31,7 @@ export default function Requests() {
     day: "numeric",
   });
 
+  // Lista de solicitudes para mostrar en la vista
   const data = useMemo(
     () => [
       {
@@ -93,18 +98,18 @@ export default function Requests() {
     if (statusFilter === "all") return data;
     return data.filter((i) => i.status === statusFilter);
   }, [statusFilter, data]);
-
-  if (showSelector) return <MarketSelector onClose={() => setShowSelector(false)} />;
+  // Si el selector de mercado está abierto, mostrar solo ese componente
+  if (showSelector)
+    return <MarketSelector onClose={() => setShowSelector(false)} />;
 
   return (
     <View style={styles.container}>
       <RequestsHeader />
-
       <View style={styles.dateContainer}>
         <AppText weight="bold" size={15} style={styles.dateText}>
           {today}
         </AppText>
-
+        {/* Botón para abrir el selector de mercado */}
         <TouchableOpacity
           style={styles.locationButton}
           onPress={() => setShowSelector(true)}
@@ -113,12 +118,11 @@ export default function Requests() {
           <AppText style={styles.locationText}>Mercado la Cruz, Qro</AppText>
           <Ionicons name="chevron-down" size={20} color={colors.primary} />
         </TouchableOpacity>
-
+       { /* Campo de búsqueda*/}
         <TouchableOpacity style={styles.searchButton}>
           <Ionicons name="search-outline" size={18} color={colors.muted} />
           <AppText style={styles.searchText}>¿A quién buscas?</AppText>
         </TouchableOpacity>
-
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -136,7 +140,7 @@ export default function Requests() {
           />
         </ScrollView>
       </View>
-
+      {/* Lista de solicitudes */}
       <FlatList
         data={filtered}
         keyExtractor={(item) => item.id}
@@ -145,7 +149,10 @@ export default function Requests() {
           paddingBottom: spacing.xl,
         }}
         renderItem={({ item }) => (
-          <RequestCard {...item} onPress={() => navigation.navigate("RequestDetail", item)} />
+          <RequestCard
+            {...item}
+            onPress={() => navigation.navigate("RequestDetail", item)}
+          /> //Navga hacia el detalle al precinar
         )}
       />
     </View>
@@ -191,5 +198,9 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
   },
   searchText: { color: "#A0A0A0", fontSize: 16, marginLeft: spacing.xs },
-  filterScroll: { marginTop: spacing.lg, paddingBottom: spacing.sm, gap: spacing.sm },
+  filterScroll: {
+    marginTop: spacing.lg,
+    paddingBottom: spacing.sm,
+    gap: spacing.sm,
+  },
 });

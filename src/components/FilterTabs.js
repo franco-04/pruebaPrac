@@ -3,7 +3,17 @@ import { View, Pressable, StyleSheet } from "react-native";
 import AppText from "./AppText"; // ajusta la ruta si tu AppText vive en otro lado
 import { colors, spacing } from "../theme";
 
-export default function FilterTabs({ options, value, onChange, compact }) {
+/**
+Componente: FilterTabs Muestra una fila de "chips" o botones pequeños para filtrar contenido. 
+Cada chip representa una opción, y se marca visualmente cuando está seleccionada.
+
+ Props:
+options: array con objetos { label, value } → define las pestañas.
+value: valor actual seleccionado.
+onChange: función que se ejecuta al tocar un chip (recibe el valor).
+compact: opcional, si es true reduce el tamaño de los chips.
+ */
+export default function SFilterTabs({ options, value, onChange, compact }) {
   return (
     <View style={[styles.container, compact && { gap: spacing.xs }]}>
       {options.map((opt) => {

@@ -8,12 +8,13 @@ import HomeFooter from './HomeFooter';
 const Character = require('../../assets/Hombre.png');
 /**
  * Módulo completo del Home:
- *  - Header (bienvenida)
- *  - Sección con acciones
+  Header (bienvenida)
+  Sección con acciones
  */
 export default function HomeContent({ onGoRequests, onGoRegisterUser, onGoMarkets, onGoAccount }) {
   return (
     <View style={styles.container}>
+      {/** Muestra el header principal*/}
       <HomeHeader />
       
       <View style={styles.body}>
@@ -21,7 +22,7 @@ export default function HomeContent({ onGoRequests, onGoRegisterUser, onGoMarket
         <AppText weight="bold" size={18} style={{ marginBottom: spacing.md, color: colors.primary }}>
           ¿Qué haremos hoy?
         </AppText>
-
+        {/* Tarjetas reutilizables */}
         <View style={{ gap: spacing.md }}>
           <ActionItemCard
             iconSet="ion"
@@ -66,16 +67,16 @@ const styles = StyleSheet.create({
   body: {
     flex: 1,
     paddingHorizontal: spacing.xl,
-    paddingTop: spacing.xl + 24, // compensa la curva del header
+    paddingTop: spacing.xl + 24, 
     backgroundColor: colors.white,
   },
   char: {
     position: 'absolute',
-    right: -50,  // mantiene la separación del borde derecho
-    top: -160,    // 🔼 súbelo ajustando este valor
+    right: -50,  
+    top: -160,    
     width: 250,
     height: 270,
-    zIndex: 1,          // asegura que quede encima del fondo
+    zIndex: 1,          
   },
 });
 

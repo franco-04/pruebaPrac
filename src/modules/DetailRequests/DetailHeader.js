@@ -10,7 +10,7 @@ export default function DetailHeader() {
 
   return (
     <View style={styles.wrap}>
-      {/* Fila superior: flecha + título */}
+      {/* Fila superior */}
       <View style={styles.topRow}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={24} color={colors.white} />

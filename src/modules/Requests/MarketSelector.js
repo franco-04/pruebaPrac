@@ -36,7 +36,7 @@ export default function MarketSelector({ onClose }) {
         />
       </View>
 
-      {/* Filtros (reutilizable) */}
+      {/* Filtros */}
       <View style={styles.filterContainer}>
         <FilterTabs
           value={filter}

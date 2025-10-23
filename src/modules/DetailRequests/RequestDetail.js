@@ -12,11 +12,16 @@ import  DetailHeader from "./DetailHeader";
 export default function RequestDetail({ route, navigation }) {
   const params = route?.params || {};
   const [status, setStatus] = useState(params.status || "pending");
-
+  /**
+Componente de opción tipo "radio" para seleccionar el estado.
+Props:
+value: string (pending | approved | rejected | waitlist)
+label: texto visible para el usuario
+   */
   const Radio = ({ value, label }) => {
     const checked = status === value;
     return (
-      <Pressable style={styles.radioRow} onPress={() => setStatus(value)} hitSlop={8}>
+      <Pressable style={styles.radioRow} onPress={() => setStatus(value)} hitSlop={8}> {/* Actualiza el estado al tocar */}
         <View style={[styles.radio, checked && styles.radioChecked]}>
           {checked ? <View style={styles.dot} /> : null}
         </View>
@@ -30,6 +35,7 @@ export default function RequestDetail({ route, navigation }) {
         <DetailHeader />
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.formCard}>
+          {/* Campos informativos del detalle estaticos */}
           <DetailRow label="Folio" value={(params.folio || "").replace("#", "")} />
           <DetailRow label="Tianguis" value={params.marketName || "—"} />
           <DetailRow label="Comercio" value={params.stallName || "—"} />
@@ -50,7 +56,7 @@ export default function RequestDetail({ route, navigation }) {
                 Estado Solicitud
               </AppText>
             </View>
-
+            {/* Radios para seleccionar estado */}
             <View style={styles.radioGroup}>
               <Radio value="pending" label="Pendiente" />
               <Radio value="approved" label="Aprobar" />
@@ -89,8 +95,8 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.primary,
     paddingHorizontal: spacing.xl,
-    paddingVertical: spacing.lg,              // más alto
-    borderBottomLeftRadius: 24,               // radio más grande
+    paddingVertical: spacing.lg,              
+    borderBottomLeftRadius: 24,               
     borderBottomRightRadius: 24,
     flexDirection: "row",
     alignItems: "center",

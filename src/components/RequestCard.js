@@ -3,7 +3,7 @@ import { View, StyleSheet, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import AppText from "./AppText";
 import { colors, spacing } from "../theme";
-
+//Datos estaticos para mostarr en el card
 export default function RequestCard({
   status = "pending",
   folio = "#01-022",
