@@ -2,8 +2,9 @@ import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing } from '../../theme';
-
-export default function HomeFooter({ navigation }) {
+import { useNavigation } from '@react-navigation/native';
+export default function HomeFooter() {
+  const navigation = useNavigation();
   return (
     <View style={styles.footer}>
       <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.item}>
@@ -11,21 +12,21 @@ export default function HomeFooter({ navigation }) {
         <Text style={styles.text}>Inicio</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Lista')} style={styles.item}>
+      <TouchableOpacity style={styles.item}>
         <Ionicons name="list-outline" size={24} color={colors.white} />
         <Text style={styles.text}>Lista</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('QR')} style={styles.qrButton}>
+      <TouchableOpacity  style={styles.qrButton}>
         <Ionicons name="qr-code-outline" size={28} color="#fff" />
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Usuarios')} style={styles.item}>
+      <TouchableOpacity  style={styles.item}>
         <Ionicons name="people-outline" size={24} color={colors.white} />
         <Text style={styles.text}>Usuarios</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Pagos')} style={styles.item}>
+      <TouchableOpacity  style={styles.item}>
         <Ionicons name="card-outline" size={24} color={colors.white} />
         <Text style={styles.text}>Pagos</Text>
       </TouchableOpacity>

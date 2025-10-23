@@ -53,7 +53,7 @@ export default function HomeContent({ onGoRequests, onGoRegisterUser, onGoMarket
           />
         </View>
       </View>
-      < HomeFooter />
+      < HomeFooter  />
     </View>
   );
 }

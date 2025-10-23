@@ -9,13 +9,11 @@ import { colors } from '../../theme';
 export default function HomeScreen() {
   const navigation = useNavigation();
 
+
   return (
     <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
       <HomeContent
         onGoRequests={() => navigation.navigate('Requests')}
-        onGoRegisterUser={() => navigation.navigate('RegisterUser')}
-        onGoMarkets={() => navigation.navigate('Markets')}
-        onGoAccount={() => navigation.navigate('Account')}
       />
     </SafeAreaView>
   );
