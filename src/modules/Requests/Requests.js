@@ -13,8 +13,10 @@ import AppText from "../../components/AppText";
 import FilterTabs from "../../components/FilterTabs";
 import RequestCard from "../../components/RequestCard";
 import { colors, spacing } from "../../theme";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Requests() {
+  const navigation = useNavigation();
   const [showSelector, setShowSelector] = useState(false);
   const [statusFilter, setStatusFilter] = useState("all");
 
@@ -143,7 +145,7 @@ export default function Requests() {
           paddingBottom: spacing.xl,
         }}
         renderItem={({ item }) => (
-          <RequestCard {...item} onPress={() => {}} />
+          <RequestCard {...item} onPress={() => navigation.navigate("RequestDetail", item)} />
         )}
       />
     </View>
