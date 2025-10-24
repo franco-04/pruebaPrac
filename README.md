@@ -42,7 +42,7 @@ src/
   screens/
   theme/
   assets/
-App.tsx
+App.js
 README.md
 ```
 
